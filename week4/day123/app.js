@@ -15,12 +15,12 @@ connection.connect((err) => {
 })
 
 
-const server = express();
-server.set("json spaces", 2);
+const app = express();
+app.set("json spaces", 2);
 
 
 // GET 
-server.get("/", (req, res) => {
+app.get("/", (req, res) => {
     res.send(`
         <!DOCTYPE html>
         <html lang=en>
@@ -38,7 +38,7 @@ server.get("/", (req, res) => {
         </html>`);
 });
 
-server.get("/students", (req, res) => {
+app.get("/students", (req, res) => {
     connection.query("SELECT * FROM students;", (err, result) => {
         if (err) {
             console.error(err);
@@ -49,7 +49,7 @@ server.get("/students", (req, res) => {
     })
 });
 
-server.get("/students/:id", (req, res) => {
+app.get("/students/:id", (req, res) => {
     const studentID = req.params.id;
     connection.query("SELECT * FROM students WHERE id = ?;", [studentID], (err, result) => {
         if (err) {
@@ -66,7 +66,7 @@ server.get("/students/:id", (req, res) => {
 });
 
 // POST
-server.post("/students", express.json(), (req, res) => {
+app.post("/students", express.json(), (req, res) => {
     const {name, gender, courseID} = req.body;
     connection.query(
         "INSERT INTO students (name, gender, course_id) VALUES (?, ?, ?)",
@@ -83,7 +83,7 @@ server.post("/students", express.json(), (req, res) => {
 })
 
 // PUT
-server.put("/students/:id", express.json(), (req, res) => {
+app.put("/students/:id", express.json(), (req, res) => {
     const studentID = req.params.id;
     const {name, gender, courseID} = req.body;
     connection.query("UPDATE students SET name = ?, gender = ?, course_id = ? WHERE id = ?;", [name, gender, courseID, studentID], (err, result) => {
@@ -105,7 +105,7 @@ server.put("/students/:id", express.json(), (req, res) => {
 });
 
 // PATCH
-server.patch("/students/:id", express.json(), (req, res) => {
+app.patch("/students/:id", express.json(), (req, res) => {
     const studentID = req.params.id;
     const {courseID} = req.body;
     connection.query("UPDATE students SET course_id = ? WHERE id = ?;", [courseID, studentID], (err, result) => {
@@ -127,7 +127,7 @@ server.patch("/students/:id", express.json(), (req, res) => {
 });
 
 // DELETE
-server.delete("/students/:id", (req, res) => {
+app.delete("/students/:id", (req, res) => {
     const studentID = req.params.id;
     connection.query("DELETE FROM students WHERE id = ?;", [studentID], (err, result) => {
         if (err) {
@@ -143,7 +143,7 @@ server.delete("/students/:id", (req, res) => {
     })
 });
 
-const serverport = 3931;
-server.listen(serverport, () => {
-    console.log(`Server is running on port ${serverport}`)
+const port = 3931;
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`)
 });

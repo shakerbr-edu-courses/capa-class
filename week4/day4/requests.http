@@ -1,0 +1,13 @@
+GET http://localhost:3931
+
+### Register a new user
+
+POST http://localhost:3931/register
+Content-Type: application/json
+
+{
+  "name": "Nikola Tesla",
+  "email": "nikola.tesla@example.com",
+  "password": "IAMnikola",
+  "birthDate": "1856-07-10"
+}
