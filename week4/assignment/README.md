@@ -84,3 +84,13 @@ GET http://localhost:3000/skills
 ### /students
 GET http://localhost:3000/students
 ```
+
+---
+
+## Project Structure
+
+student-api/<br>
+├── [app.js](student-api/app.js)<br>
+├── [package.json](student-api/package.json)<br>
+├── [package-lock.json](student-api/package-lock.json)<br>
+└── [requests.http](student-api/requests.http)<br>
