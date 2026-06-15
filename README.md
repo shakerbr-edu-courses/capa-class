@@ -15,3 +15,5 @@ Welcome! You'll find most of my work here.
 
 #### Day 1 & 2
 - Classwork: [server, requests, and packages](week4)
+
+#### Assignment: [Student Information API](week4/assignment)
