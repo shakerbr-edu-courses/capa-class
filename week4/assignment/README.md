@@ -20,5 +20,41 @@ npm init -y
 npm install express
 ```
 
-### Step 2 - Change the type in package.json to ECMA Script module instead of Common JS so that we can use import. 
+### Step 2 - Use ES Module
+Change the type in package.json to ECMA Script module instead of Common JS so that we can use import. 
 
+### Step 3 - Write express's boilerplate
+In this step, create app.js, then we import the express, create the default route, and make the app listen on port 3000.
+
+```bash
+touch app.js
+code app.js
+```
+
+### Step 4 - Test and Install Nodemon
+We can test if the app is listening correctly by using `node app.js`, but instead, we'll install nodemon so that the server update without manual restart.
+
+```bash
+npm install nodemon --save-dev # save as a dev dependency
+```
+
+Optionally, we add dev script for running the server:
+```js
+// ...
+ "scripts": {
+    //Other scripts,
+    "dev": "nodemon app.js"
+  }
+// ...
+```
+
+Then start the server with `npm run dev`
+
+Note: We should see in the console: Server is listening on port 3000
+
+### Step 5 - Testing the API
+Now we create an api request file to test the api(root)
+
+```http
+GET http://localhost:3000
+```
