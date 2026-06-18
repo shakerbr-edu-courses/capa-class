@@ -4,7 +4,7 @@ function App() {
   return (
     <>
       <div>
-        <Card/>
+        <Card name="Component" />
       </div>
     </>
   );
