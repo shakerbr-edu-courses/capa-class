@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Card({children, name, age, dept, city }) {
+function Card({children, name, age, department, city }) {
     const initials = name 
         .split(" ") 
         .map((n) => n[0]) 
@@ -16,33 +16,27 @@ function Card({children, name, age, dept, city }) {
     ;
 
     return (
-        <div className="text-center p-6 font-medium bg-[#007fffcc] rounded-2xl text-white shadow-md shadow-blue-500/50 w-120 h-50">
-            <div className="upper flex flex-row">
-                <div className="profile-image bg-white rounded-2xl w-18 h-18 flex flex-col item-center justify-center">
-                    <p className='text-[#007fff] font-black text-2xl'>{initials}</p>
+        <div className="font-medium text-white min-w-90 min-h-50 p-6 rounded-2xl bg-[#007fffcc] shadow-md shadow-blue-500/50">
+            <div className="flex flex-row">
+                <div className="flex flex-col justify-center w-18 h-18 bg-white rounded-2xl">
+                    <p className='text-center text-[#007fff] font-black text-2xl'>{initials}</p>
                 </div>
-                <div className="info px-4 text-left">
+                <div className="flex flex-col mx-4">
                     <h3 className='font-black text-xl'>{capName}</h3>
-                    <p>{dept}</p>
+                    <p>{department}</p>
                 </div>
             </div>
+
             <hr className="my-4" />
-            <div className="lower flex flex-col">
-                <div className="detail flex justify-between">
-                    <div className="title text-left pl-4">
-                        <p>Age:</p>
-                    </div>
-                    <div className="value text-right pr-4">
-                        <p>{age}</p>
-                    </div>
+
+            <div className="flex flex-col">
+                <div className="flex justify-between">
+                    <p className="text-left ml-4">Age:</p>
+                    <p className="font-bold mr-4">{age}</p>
                 </div>
-                <div className="detail flex justify-between">
-                    <div className="title text-left pl-4">
-                        <p>City:</p>
-                    </div>
-                    <div className="value text-right pr-4">
-                        <p>{city}</p>
-                    </div>
+                <div className="flex justify-between">
+                    <p className="text-left ml-4">City:</p>
+                    <p className="font-bold mr-4">{city}</p>
                 </div>
             </div>
         </div>

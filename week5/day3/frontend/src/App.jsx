@@ -1,23 +1,32 @@
+// Uncomment one at a time
 import Card from "./components/Card";
+// import Card from "./components/Xcard";
 
 function App() {
   return (
     <>
       {/* <Header/> */}
-      <main className="flex flex-col md:flex-row gap-4 justify-center items-center">
+      <main className="flex flex-wrap gap-4 justify-center">
 
         <Card
           name="Conquerer mateen"
-          age={5}
-          dept="Engineering"
+          age={25}
+          department="Engineering"
           city="Duhok"
         />
 
         <Card
           name="Lord Snow"
-          age={7}
-          dept="Science"
-          city="Duhok"
+          age={17}
+          department="Marketing"
+          city="Erbil"
+        > Test </Card>
+
+        <Card
+          name="Sam Ismail"
+          age={19}
+          department="Sales"
+          city="Mosul"
         > Test </Card>
 
       </main>
