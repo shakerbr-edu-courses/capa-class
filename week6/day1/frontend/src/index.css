@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+body {
+  background-color: #121314;
+  padding: 40px;
+}
+
+/* * {
+  outline: 1px solid;
+} */
