@@ -1,17 +1,20 @@
 import { useState } from "react";
+import { saveToken } from "../services/auth"
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   async function handleLogin() {
+    setError("");
+    setSuccess("");
+    
     if (email === "" || password === "") {
       setError("Email and password can't be empty");
-    } else {
-      setError("");
     }
-
+    
     try {
       const response = await fetch("http://localhost:3931/login", {
         method: "POST",
@@ -20,14 +23,27 @@ function Login() {
         },
         body: JSON.stringify({ email, password }),
       });
+
+      if (!response.ok) {
+        const data = await response.json();
+        setError(data.error || "Error: Couldn't login, please try again later.");
+        return
+      }
+
+      const data = await response.json();
+      console.log(data.token);
+      saveToken(data.token);
+      window.location.href = "/";
+      
     } catch (e) {
-      setError("Error: Couldn't login, please try again later.")
+      setError("Error: " + e)
     }
   }
-
+ 
   return (
     <div className="flex flex-col items-center">
       <h1>Login</h1>
+      {success && <p className="text-green-400">{success}</p>}
       {error && <p className="text-red-400">{error}</p>}
       <input
         type="email"

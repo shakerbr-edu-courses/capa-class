@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
-    <nav className='flex block border-2 rounded-full justify-center gap-6 text-xl font-bold p-2 m-4'>
+    <nav className='flex block bg-white text-black rounded-full justify-center gap-6 text-xl font-bold p-2 m-4'>
         <Link 
             to="/"
             className='transition-all duration-300 hover:underline' 
