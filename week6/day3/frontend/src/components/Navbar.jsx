@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { isLoggedIn, removeToken } from '../services/auth';
 
 function Navbar() {
   return (
@@ -21,12 +22,22 @@ function Navbar() {
         >
             Contact
         </Link>
+        {!isLoggedIn() && (
         <Link 
             to="/login"
-            className='transition-all duration-300 hover:underline' 
+            className='transition-all duration-300 bg-blue-500 text-white px-4 rounded-full hover:bg-blue-700' 
         >
             Login
         </Link>
+        )}
+        {isLoggedIn() && (
+        <Link 
+            to="/logout"
+            className='transition-all duration-300 bg-red-500 text-white px-4 rounded-full hover:bg-red-700' 
+        >
+            Logout
+        </Link>
+        )}
     </nav>
   );
 }
