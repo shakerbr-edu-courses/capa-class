@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { isLoggedIn, removeToken } from '../services/auth';
+import { isLoggedIn } from '../services/auth';
 
 function Navbar() {
   return (
