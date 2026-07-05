@@ -16,9 +16,9 @@ export default function TabsLayout() {
         tabBarInactiveTintColor: "#cce6ff",
       }}>
       <Tabs.Screen name="index" options={{ 
-        title: "Home",
+        title: "Books",
         tabBarIcon: ({ color, size }) => (
-          <Ionicons name="home" color={color} size={size} />
+          <Ionicons name="book" color={color} size={size} />
         ),
       }} />
       <Tabs.Screen name="about" options={{ 
